@@ -1,0 +1,5 @@
+# Enables and disables the plugin
+enabled: true
+
+# The CSS class that will identify images for lazy loading
+lazy_img_class: 'img-fluid'
