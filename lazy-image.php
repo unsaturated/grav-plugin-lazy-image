@@ -103,6 +103,11 @@ class LazyImagePlugin extends Plugin
 
     protected function updateImages($content)
     {
+        if(trim($content) === '') 
+        {
+            return;
+        }
+
         $class_for_images = $this->grav['config']->get('plugins.lazy-image.lazy_img_class');
 
         if($this->isValidClass($class_for_images))
