@@ -5,7 +5,7 @@
     * Initial plugin code.
 
 # v1.0.1
-##  03/02/2018
+##  03/18/2018
 
 1. [](#bugfix)
     * Remove unique identifier from `autoload.php`, `autoload_real.php`, and `autoload_static.php`
