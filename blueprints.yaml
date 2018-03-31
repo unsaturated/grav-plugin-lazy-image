@@ -1,5 +1,5 @@
 name: Lazy Image
-version: 1.0.1
+version: 1.0.2
 description: Defers loading your page's images until they are scrolled into view.
 icon: image
 author:

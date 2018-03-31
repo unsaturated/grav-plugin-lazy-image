@@ -115,12 +115,14 @@ class LazyImagePlugin extends Plugin
             $document = new Document($content);
             if (count($images = $document->find("img.".$class_for_images)) > 0) {
                 foreach ($images as $image) {
-                    $img_src = $image->getAttribute("src");
-                    $img_srset = $image->getAttribute("srcset");
-                    $image->setAttribute("data-src", $img_src);
-                    $image->setAttribute("data-srcset", $img_srset);
-                    $image->removeAttribute("src");
-                    $image->removeAttribute("srcset");
+                    if(!$image->getAttribute("data-src")) {
+                        $img_src = $image->getAttribute("src");
+                        $img_srset = $image->getAttribute("srcset");
+                        $image->setAttribute("data-src", $img_src);
+                        $image->setAttribute("data-srcset", $img_srset);
+                        $image->removeAttribute("src");
+                        $image->removeAttribute("srcset");
+                    }
                 }
                 return $document->html();
             }
