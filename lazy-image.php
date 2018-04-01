@@ -103,7 +103,7 @@ class LazyImagePlugin extends Plugin
 
     protected function updateImages($content)
     {
-        if(trim($content) === '') 
+        if(!is_string($content) || trim($content) === '')
         {
             return;
         }
@@ -112,7 +112,7 @@ class LazyImagePlugin extends Plugin
 
         if($this->isValidClass($class_for_images))
         {
-            $document = new Document($content);
+            $document = new Document($content, false, 'UTF-8', 'html');
             if (count($images = $document->find("img.".$class_for_images)) > 0) {
                 foreach ($images as $image) {
                     if(!$image->getAttribute("data-src")) {
